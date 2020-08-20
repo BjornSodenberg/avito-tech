@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PostServices from '../../services/post-services';
 
 const Posts = () => {
+    const postServices = new PostServices();
+    const data = postServices.getPosts();
+    console.log(Promise.resolve);
     const {items, isLoaded, error} = useFetchData();
     if(error) return <p>Error</p>;
     if(isLoaded) return <p>loading...</p>;
